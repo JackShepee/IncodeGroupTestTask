@@ -47,16 +47,20 @@ const CharacterDetailsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#222",
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
+    color: "#44AEEA",
   },
   info: {
     fontSize: 18,
     marginBottom: 10,
+    color: "#fff",
   },
 });
 

@@ -15,19 +15,25 @@ interface CharacterItemProps {
     gender: string;
   };
   onPress: (event: GestureResponderEvent) => void;
-  onAddToFavourites: (event: GestureResponderEvent) => void;
+  onToggleFavourites: (event: GestureResponderEvent) => void;
+  isFavourite: boolean;
 }
 
 const CharacterItem: FunctionComponent<CharacterItemProps> = ({
   character,
   onPress,
-  onAddToFavourites,
+  onToggleFavourites,
+  isFavourite,
 }) => (
   <TouchableOpacity onPress={onPress}>
     <View style={styles.item}>
       <Text style={styles.title}>{character.name}</Text>
-      <TouchableOpacity onPress={onAddToFavourites}>
-        <MaterialCommunityIcons name="heart" color={"black"} size={20} />
+      <TouchableOpacity onPress={onToggleFavourites}>
+        <MaterialCommunityIcons
+          name="heart"
+          color={isFavourite ? "red" : "#44AEEA"}
+          size={48}
+        />
       </TouchableOpacity>
     </View>
   </TouchableOpacity>
@@ -44,9 +50,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-  },
-  addToFavourites: {
-    color: "blue",
+    color: "#fff",
   },
 });
 
